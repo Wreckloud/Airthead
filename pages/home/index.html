@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Airthead · 问题档案</title>
+    <link rel="stylesheet" href="../../assets/styles/base.css" />
+    <link rel="stylesheet" href="../../assets/styles/common.css" />
+    <style>
+      /* 头图区块 */
+      .hero {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      /* 头图标题 */
+      .hero h1 {
+        font-family: "Optima", "Candara", "Trebuchet MS", sans-serif;
+        font-size: clamp(28px, 3.2vw, 42px);
+        margin: 0 0 12px;
+        line-height: 1.1;
+      }
+
+      /* 头图描述 */
+      .hero p {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      /* 列表区标题 */
+      .section-title {
+        margin: 36px 0 16px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: var(--muted);
+      }
+
+      /* 列表容器 */
+      .post-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 16px;
+      }
+
+      /* 列表项链接 */
+      .post-link {
+        display: block;
+        padding: 20px 24px;
+      }
+
+      /* 列表项分隔线 */
+      .post-item {
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 12px;
+      }
+
+      /* 列表标题 */
+      .post-title {
+        font-family: "Optima", "Candara", "Trebuchet MS", sans-serif;
+        font-size: 20px;
+        margin: 0 0 8px;
+      }
+
+      /* 列表摘要 */
+      .post-summary {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+
+      /* 列表元信息 */
+      .post-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--sage);
+      }
+
+      .post-meta span {
+        padding-right: 8px;
+        border-right: 1px solid var(--line);
+      }
+
+      .post-meta span:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+
+      /* 小屏优化 */
+      @media (max-width: 720px) {
+        .hero {
+          padding: 20px;
+        }
+
+        .post-link {
+          padding: 16px 18px;
+        }
+
+        .post-title {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="nav">
+        <div class="brand">Airthead Notes</div>
+      </nav>
+
+      <section class="hero">
+        <div>
+          <h1>把反复回答的问题，整理成可复用的答案库</h1>
+          <p>
+            这里可以想一些酷炫的网站介绍和描述
+          </p>
+        </div>
+      </section>
+
+      <div class="section-title">最近整理</div>
+      <ul class="post-list" data-post-list></ul>
+    </div>
+
+    <script src="../../posts/posts.js"></script>
+    <script src="list.js"></script>
+  </body>
+</html>

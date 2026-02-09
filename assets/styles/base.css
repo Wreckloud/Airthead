@@ -1,0 +1,71 @@
+/* 字体 */
+@font-face {
+  font-family: "Iosevka Aile";
+  src: local("Iosevka Aile"), local("Iosevka");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 基础变量（可通过 html[data-theme] 强制切换） */
+:root {
+  color-scheme: light dark;
+  --bg: #f6f7f9;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --sage: #1d4ed8;
+  --line: rgba(15, 23, 42, 0.12);
+  --max: 1080px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111418;
+    --ink: #e5e7eb;
+    --muted: #9aa4b2;
+    --sage: #9bb6ff;
+    --line: rgba(226, 232, 240, 0.2);
+  }
+}
+
+html[data-theme="light"] {
+  --bg: #f6f7f9;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --sage: #1d4ed8;
+  --line: rgba(15, 23, 42, 0.12);
+}
+
+html[data-theme="dark"] {
+  --bg: #111418;
+  --ink: #e5e7eb;
+  --muted: #9aa4b2;
+  --sage: #9bb6ff;
+  --line: rgba(226, 232, 240, 0.2);
+}
+
+/* 基础重置 */
+* {
+  box-sizing: border-box;
+}
+
+/* 页面基础样式 */
+body {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Iosevka Aile", serif;
+  color: var(--ink);
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+/* 链接默认样式 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 图片默认 */
+img {
+  max-width: 100%;
+  display: block;
+}

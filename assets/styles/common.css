@@ -1,0 +1,29 @@
+/* 通用布局：两页共用（容器 + 顶部） */
+.container {
+  width: min(92%, var(--max));
+  margin: 0 auto;
+  padding: 40px 0 64px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.brand {
+  font-family: "Optima", "Candara", "Trebuchet MS", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+/* 通用响应式：小屏留白收紧 */
+@media (max-width: 720px) {
+  .container {
+    padding: 28px 0 48px;
+  }
+}

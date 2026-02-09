@@ -23,5 +23,15 @@ jobs:
       - name: Login CloudBase CLI
         run: tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
 
+      - name: Prepare deploy folder
+        run: |
+          mkdir -p deploy
+          rsync -a --delete \
+            --exclude .git \
+            --exclude .github \
+            --exclude node_modules \
+            --exclude deploy \
+            ./ deploy/
+
       - name: Deploy
-        run: tcb hosting deploy ./ / -e ${{ secrets.TCB_ENV_ID }}
+        run: tcb hosting deploy ./deploy / -e ${{ secrets.TCB_ENV_ID }}

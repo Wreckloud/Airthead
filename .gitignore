@@ -1,0 +1,3 @@
+# Local helper scripts (do not upload)
+generate-posts.bat
+scripts/generate-posts.ps1

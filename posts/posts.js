@@ -1,44 +1,53 @@
-window.POSTS = [
+﻿window.POSTS = [
   {
-    title: "这是一个非常严肃的问题",
-    desc: "点进去看长截图",
-    date: "2026-02-09",
+    title: "关于老虎及猫科动物吻部结构的讨论",
+    desc: "",
+    date: "2025-12-16",
     images: [
-      "posts/001/1.jpg"
+      "posts/关于老虎及猫科动物吻部结构的讨论/1b1f400f61a3285042f7445a7b51a777.png"
     ],
-    tags: ["测试标签"],
-    body: "posts/001/body.txt"
+    tags: ["透视", "结构"],
+    body: ""
   },
   {
-    title: "这是一个比较认真的问题",
-    desc: "评论走 QQ 私聊",
-    date: "2026-02-09",
+    title: "关于二分与明暗交界线的差异",
+    desc: "",
+    date: "2025-09-29",
     images: [
-      "posts/002/1.png"
+      "posts/关于二分与明暗交界线的差异/02a0578817229cd15cbf9ce46b284a83.png",
+      "posts/关于二分与明暗交界线的差异/5813affff1fddc84ff96bbcad6220aa5.png"
     ],
-    tags: ["构图", "版式"],
-    body: "posts/002/body.txt"
+    tags: ["色彩", "构成", "画面安排"],
+    body: ""
   },
   {
-    title: "用来测试正文是否符合预期",
-    desc: "多图测试",
-    date: "2026-02-09",
+    title: "光源及背景板的讨论",
+    desc: "",
+    date: "2026-01-09",
     images: [
-      "posts/这是一篇示例文章/Wreckloud 23年09月05日 16时53分08秒.jpg",
-      "posts/这是一篇示例文章/Wreckloud 23年09月05日 18时09分22秒.png",
-      "posts/这是一篇示例文章/Wreckloud 23年09月05日 18时10分17秒.png",
-      "posts/这是一篇示例文章/Wreckloud 23年09月05日 18时10分55秒.png",
-      "posts/这是一篇示例文章/Wreckloud 23年09月05日 19时45分23秒.png"
+      "posts/光源及背景板的讨论/986ea77580c610d426a54960fdaa123d.png"
     ],
-    tags: ["示例", "多图"],
-    body: "posts/这是一篇示例文章/随便叫什么名字都可以.txt"
+    tags: ["色彩"],
+    body: ""
   },
   {
-    title: "用来测试正文是否符合预期",
-    desc: "非常傲慢的测试文本，为什么会非常傲慢呢？",
-    date: "2026-02-09",
-    images: [],
-    tags: ["示例"],
-    body: "posts/正文测试/测试文本.txt"
+    title: "曲线的用法及原理",
+    desc: "",
+    date: "2025-09-08",
+    images: [
+      "posts/曲线的用法及原理/bf7858e8098514d1280121ea9b5cfc6b.png"
+    ],
+    tags: ["色彩"],
+    body: ""
+  },
+  {
+    title: "研究色彩练习的方法",
+    desc: "",
+    date: "2025-10-27",
+    images: [
+      "posts/研究色彩练习的方法/9e53bd842c1c948045f647f140d3963d.png"
+    ],
+    tags: ["色彩", "练习思路"],
+    body: ""
   }
 ];

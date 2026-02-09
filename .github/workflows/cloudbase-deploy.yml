@@ -23,15 +23,35 @@ jobs:
       - name: Login CloudBase CLI
         run: tcb login --apiKeyId ${{ secrets.TCB_SECRET_ID }} --apiKey ${{ secrets.TCB_SECRET_KEY }}
 
-      - name: Prepare deploy folder
+      - name: Prepare deploy folders
         run: |
-          mkdir -p deploy
+          mkdir -p deploy-site deploy-posts
           rsync -a --delete \
             --exclude .git \
             --exclude .github \
             --exclude node_modules \
-            --exclude deploy \
-            ./ deploy/
+            --exclude deploy-site \
+            --exclude deploy-posts \
+            --exclude posts \
+            ./ deploy-site/
+          rsync -a --delete ./posts/ deploy-posts/
 
-      - name: Deploy
-        run: tcb hosting deploy ./deploy / -e ${{ secrets.TCB_ENV_ID }}
+      - name: Deploy (with retry)
+        run: |
+          set -euo pipefail
+          retry() {
+            local max=3
+            local n=1
+            local delay=5
+            until "$@"; do
+              if [ "$n" -ge "$max" ]; then
+                return 1
+              fi
+              echo "Retry $n/$max failed. Sleeping ${delay}s..."
+              n=$((n + 1))
+              sleep "$delay"
+              delay=$((delay * 2))
+            done
+          }
+          retry tcb hosting deploy ./deploy-site / -e "${{ secrets.TCB_ENV_ID }}"
+          retry tcb hosting deploy ./deploy-posts /posts -e "${{ secrets.TCB_ENV_ID }}"

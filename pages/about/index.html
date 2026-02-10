@@ -58,13 +58,13 @@
       margin: 0 auto;
     }
 
-    .about-split {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: start;
-      margin-bottom: 28px;
-    }
+      .about-split {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 28px;
+      }
 
     .about-split .about-section {
       margin-bottom: 0;
@@ -107,6 +107,28 @@
       justify-content: center;
       gap: 14px;
       padding-top: 6px;
+    }
+
+    .about-rating {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .about-rating .about-section {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 720px) {
+      .about-rating {
+        grid-template-columns: 1fr;
+      }
+
+      .about-rating .rating-chart {
+        justify-self: center;
+      }
     }
 
     .rating-item {
@@ -239,7 +261,7 @@
       <img class="zoomable" src="./img/006.png" alt="目前关注方向展示" data-zoom="./img/006.png" />
     </figure>
 
-    <div class="about-split">
+    <div class="about-rating">
       <section class="about-section">
         <h2>自我评分说明</h2>
         <p>

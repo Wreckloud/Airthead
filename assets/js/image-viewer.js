@@ -14,8 +14,18 @@
   let startY = 0;
   let moved = false;
   let lastTap = 0;
+  let didPinch = false;
+  const pointers = new Map();
+  let pinchStartDistance = 0;
+  let pinchStartScale = 1;
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const getDistance = (a, b) => {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+    return Math.hypot(dx, dy);
+  };
 
   const setTransform = () => {
     img.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
@@ -99,14 +109,38 @@
 
   img.addEventListener("pointerdown", (event) => {
     if (!viewer.classList.contains("is-open")) return;
-    isDragging = true;
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    didPinch = false;
     moved = false;
-    startX = event.clientX - translateX;
-    startY = event.clientY - translateY;
+    if (pointers.size === 2) {
+      const [p1, p2] = Array.from(pointers.values());
+      pinchStartDistance = getDistance(p1, p2);
+      pinchStartScale = scale;
+      isDragging = false;
+    } else {
+      isDragging = true;
+      startX = event.clientX - translateX;
+      startY = event.clientY - translateY;
+    }
     img.setPointerCapture(event.pointerId);
   });
 
   img.addEventListener("pointermove", (event) => {
+    if (!viewer.classList.contains("is-open")) return;
+    if (!pointers.has(event.pointerId)) return;
+    pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
+
+    if (pointers.size === 2) {
+      const [p1, p2] = Array.from(pointers.values());
+      const distance = getDistance(p1, p2);
+      if (pinchStartDistance > 0) {
+        scale = clamp(pinchStartScale * (distance / pinchStartDistance), 1, 4);
+        didPinch = true;
+        setTransform();
+      }
+      return;
+    }
+
     if (!isDragging || scale <= 1) return;
     const nextX = event.clientX - startX;
     const nextY = event.clientY - startY;
@@ -119,13 +153,18 @@
   });
 
   const handlePointerUp = (event) => {
-    if (!isDragging) return;
-    isDragging = false;
     if (img.hasPointerCapture(event.pointerId)) {
       img.releasePointerCapture(event.pointerId);
     }
+    pointers.delete(event.pointerId);
+    if (pointers.size < 2) {
+      pinchStartDistance = 0;
+    }
+    if (pointers.size === 0) {
+      isDragging = false;
+    }
 
-    if (event.pointerType === "touch" && !moved) {
+    if (event.pointerType === "touch" && !moved && !didPinch) {
       const now = Date.now();
       if (now - lastTap < 260) {
         toggleZoom();

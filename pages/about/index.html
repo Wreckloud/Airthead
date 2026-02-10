@@ -79,9 +79,56 @@
         object-fit: contain;
       }
 
+      .rating-chart {
+        flex: 0 1 360px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 14px;
+        padding-top: 6px;
+        margin-left: auto;
+      }
+
+      .rating-item {
+        display: grid;
+        justify-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .rating-value {
+        font-size: 12px;
+        color: var(--sage);
+      }
+
+      .rating-bar {
+        width: 24px;
+        height: 140px;
+        border: 1px solid var(--sage);
+        padding: 3px;
+        display: flex;
+        align-items: flex-end;
+        border-radius: 2px;
+      }
+
+      .rating-fill {
+        width: 100%;
+        height: calc(var(--value) * 1%);
+        background: color-mix(in srgb, var(--sage) 35%, transparent);
+        border-radius: 2px;
+      }
+
       @media (max-width: 720px) {
         .about-row .about-figure {
           flex-basis: 100%;
+          justify-content: center;
+        }
+
+        .rating-chart {
+          flex: 1 1 100%;
+          width: 100%;
+          margin-left: 0;
           justify-content: center;
         }
       }
@@ -179,13 +226,57 @@
         </p>
       </section>
 
-      <section class="about-section">
-        <h2>自我评分说明</h2>
-        <p>
-          右边的条形图是我对自己绘画理解的自评分数，是基于“能画出一张可看的画”给自己打的分，
-          不是给画师或职业作品打分；对我来说要走的路还很长。
-        </p>
-      </section>
+      <figure class="about-figure center">
+        <img src="./img/006.png" alt="目前关注方向展示" />
+      </figure>
+
+      <div class="about-row">
+        <section class="about-section">
+          <h2>自我评分说明</h2>
+          <p>
+            右边的条形图是我对自己绘画理解的自评分数，是基于“能画出一张可看的画”给自己打的分，
+            不是给画师或职业作品打分；对我来说要走的路还很长。
+          </p>
+        </section>
+
+        <div class="rating-chart" aria-label="自我评分条形图">
+          <div class="rating-item" style="--value: 65">
+            <span class="rating-value">65</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">结构</span>
+          </div>
+          <div class="rating-item" style="--value: 70">
+            <span class="rating-value">70</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">构成</span>
+          </div>
+          <div class="rating-item" style="--value: 60">
+            <span class="rating-value">60</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">色彩</span>
+          </div>
+          <div class="rating-item" style="--value: 70">
+            <span class="rating-value">70</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">人体</span>
+          </div>
+          <div class="rating-item" style="--value: 75">
+            <span class="rating-value">75</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">造型</span>
+          </div>
+          <div class="rating-item" style="--value: 60">
+            <span class="rating-value">60</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">设计</span>
+          </div>
+          <div class="rating-item" style="--value: 70">
+            <span class="rating-value">70</span>
+            <div class="rating-bar"><div class="rating-fill"></div></div>
+            <span class="rating-label">场景</span>
+          </div>
+        </div>
+      </div>
 
       <section class="about-section">
         <h2>加入讨论</h2>

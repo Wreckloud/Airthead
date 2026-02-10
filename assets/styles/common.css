@@ -21,6 +21,20 @@
   color: var(--sage);
 }
 
+.nav-links {
+  margin-left: auto;
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--sage);
+}
+
+.nav-links a {
+  color: var(--sage);
+}
+
 /* 通用响应式：小屏留白收紧 */
 @media (max-width: 720px) {
   .container {

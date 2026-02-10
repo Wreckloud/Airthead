@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>关于 · Airthead</title>
+    <link rel="stylesheet" href="../../assets/styles/base.css" />
+    <link rel="stylesheet" href="../../assets/styles/common.css" />
+    <style>
+      .about-hero,
+      .about-section {
+        display: grid;
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .about-hero h1 {
+        margin: 0;
+        font-family: "Optima", "Candara", "Trebuchet MS", sans-serif;
+        font-size: clamp(26px, 3vw, 40px);
+      }
+
+      .about-hero p,
+      .about-section p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      .about-section h2 {
+        margin: 0;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--sage);
+      }
+
+      .about-figure {
+        margin: 0 0 28px;
+      }
+
+      .about-figure img {
+        width: 100%;
+        height: auto;
+      }
+
+      .about-figure.center img {
+        width: min(100%, 720px);
+        margin: 0 auto;
+      }
+
+      .about-figure.qr img {
+        width: min(220px, 60vw);
+        margin: 0 auto;
+      }
+
+      .about-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 28px;
+      }
+
+      .about-row .about-section {
+        flex: 1 1 320px;
+        margin-bottom: 0;
+      }
+
+      .about-row .about-figure {
+        flex: 0 1 200px;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .about-row .about-figure img {
+        max-height: 140px;
+        object-fit: contain;
+      }
+
+      @media (max-width: 720px) {
+        .about-row .about-figure {
+          flex-basis: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="nav">
+        <div class="brand">Airthead Notes</div>
+        <div class="nav-links">
+          <a href="../home/">首页</a>
+        </div>
+      </nav>
+
+      <header class="about-hero">
+        <h1>关于这个网站</h1>
+        <p>
+          这是我整理绘画思考与问题的地方，希望把学习过程中遇到的困难与方法收集成一份可复用的
+          问题库。
+        </p>
+      </header>
+
+      <section class="about-section">
+        <h2>想法</h2>
+        <p>
+          我想为今后自己开发的网站设置一张学习绘画的地图，通过截至目前三年的学习路径，把从新手到现在
+          的过程中的困难与思考分享出来。每个问题都会打上标签，让知识像蜘蛛网一样互相连接，方便遇到困难
+          的人知道自己需要补哪一块、该怎么做、该怎么练。
+        </p>
+      </section>
+
+      <figure class="about-figure center">
+        <img src="./img/001.png" alt="学习路径与问题地图" />
+      </figure>
+
+      <div class="about-row">
+        <section class="about-section">
+          <h2>动机</h2>
+          <p>
+            相比绘画带来的成就或收益，我更喜欢在创作的途中研究绘画里的思路和想法，并把这些分享给别人。
+            我享受通过帮助别人得到的正反馈，这种反馈是其他方面无法相比的；而这一动机需要大量的问题来源，
+            所以我想把问题收集起来，让这个“知识地图”的底座更扎实。
+          </p>
+        </section>
+
+        <figure class="about-figure">
+          <img src="./img/002.png" alt="动机相关草图" />
+        </figure>
+      </div>
+
+      <div class="about-row">
+        <section class="about-section">
+          <h2>什么时候可以问，在哪里问？</h2>
+          <p>
+            你可以在群里提问，把问题丢在群里即可；如果比较害怕，直接私信也没问题。我大部分时间都有空，
+            即使不能第一时间回复，也可以把困惑整理出来，方便我集中处理。
+          </p>
+        </section>
+
+        <figure class="about-figure">
+          <img src="./img/003.png" alt="提问方式与交流" />
+        </figure>
+      </div>
+
+      <div class="about-row">
+        <section class="about-section">
+          <h2>关于“权威”或“可信度”</h2>
+          <p>
+            权威感往往来自平台人气、技术/作品与个人因素等。我不是什么很厉害的大佬，也不敢说自己提供的
+            一定多么强大；如果你愿意听我的理解，或愿意拓展一下思路，我就很乐意分享，哪怕最后你觉得学到
+            的不多，也能当作一次交流。
+          </p>
+        </section>
+
+        <figure class="about-figure">
+          <img src="./img/004.png" alt="可信度与交流说明" />
+        </figure>
+      </div>
+
+
+
+      <section class="about-section">
+        <h2>我希望</h2>
+        <p>
+          无论你是新手、已经走了一段路的高手，或者非常厉害的大佬，我都希望降低彼此沟通的压力。
+          不因为画技差异而害怕问“笨问题”，也不因为程度不同而不屑交流。理想状态是：双方互相探讨、
+          分享思路与技巧，形成良性循环的友好环境。
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>目前的关注方向</h2>
+        <p>
+          我目前主攻人体造型和角色设计，喜欢软 Q 的人物、场景和插画，也喜欢研究绘画上的思路与有意思的想法。
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>自我评分说明</h2>
+        <p>
+          右边的条形图是我对自己绘画理解的自评分数，是基于“能画出一张可看的画”给自己打的分，
+          不是给画师或职业作品打分；对我来说要走的路还很长。
+        </p>
+      </section>
+
+      <section class="about-section">
+        <h2>加入讨论</h2>
+        <p>
+          这是我的神秘小群，如果你感兴趣欢迎加入。我们可以一起讨论交流绘画甚至其他方面的问题，
+          偶尔也会有大佬的分享（目前还没有）。当然现在人还不多，活跃度可能比较低。
+        </p>
+      </section>
+
+      <figure class="about-figure qr">
+        <img src="./img/005.jpg" alt="阶段性作品与练习" />
+      </figure>
+    </div>
+  </body>
+</html>

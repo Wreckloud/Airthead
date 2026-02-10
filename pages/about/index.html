@@ -81,13 +81,14 @@
 
       .about-frame {
         position: relative;
+        --about-watermark: url("./img/007.png");
       }
 
       .about-frame::before {
         content: "";
         position: absolute;
         inset: 0;
-        background: url("./img/007.png") no-repeat center;
+        background: var(--about-watermark) no-repeat center;
         background-size: clamp(260px, 60%, 520px) auto;
         opacity: 0.16;
         pointer-events: none;
@@ -295,5 +296,15 @@
         <img src="./img/005.png" alt="阶段性作品与练习" />
       </figure>
     </div>
+
+    <script>
+      (() => {
+        const chance = 0.01;
+        if (Math.random() > chance) return;
+        const frame = document.querySelector(".about-frame");
+        if (!frame) return;
+        frame.style.setProperty("--about-watermark", "url('./img/007-01.png')");
+      })();
+    </script>
   </body>
 </html>

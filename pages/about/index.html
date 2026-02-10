@@ -31,7 +31,6 @@
       .about-section h2 {
         margin: 0;
         font-size: 14px;
-        text-transform: uppercase;
         letter-spacing: 0.18em;
         color: var(--sage);
       }
@@ -46,47 +45,66 @@
       }
 
       .about-figure.center img {
-        width: min(100%, 720px);
-        margin: 0 auto;
+        width: 720px;
       }
 
       .about-figure.qr img {
-        width: min(220px, 60vw);
+        width: 220px;
+      }
+
+      .about-figure.center img,
+      .about-figure.qr img {
         margin: 0 auto;
       }
 
-      .about-row {
-        display: flex;
-        flex-wrap: wrap;
+      .about-split {
+        display: grid;
+        grid-template-columns: 1fr auto;
         gap: 20px;
+        align-items: start;
         margin-bottom: 28px;
       }
 
-      .about-row .about-section {
-        flex: 1 1 320px;
+      .about-split .about-section {
         margin-bottom: 0;
       }
 
-      .about-row .about-figure {
-        flex: 0 1 200px;
+      .about-split .about-figure {
         margin: 0;
-        display: flex;
-        justify-content: flex-end;
       }
 
-      .about-row .about-figure img {
-        max-height: 140px;
-        object-fit: contain;
+      .about-split .about-figure img {
+        width: 150px;
+        height: auto;
+        display: block;
+      }
+
+      .about-frame {
+        position: relative;
+      }
+
+      .about-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./img/007.png") no-repeat center;
+        background-size: clamp(260px, 60%, 520px) auto;
+        opacity: 0.16;
+        pointer-events: none;
+      }
+
+      .about-frame > * {
+        position: relative;
+        z-index: 1;
       }
 
       .rating-chart {
-        flex: 0 1 360px;
+        width: 360px;
         display: flex;
         align-items: flex-end;
         justify-content: center;
         gap: 14px;
         padding-top: 6px;
-        margin-left: auto;
       }
 
       .rating-item {
@@ -119,19 +137,6 @@
         border-radius: 2px;
       }
 
-      @media (max-width: 720px) {
-        .about-row .about-figure {
-          flex-basis: 100%;
-          justify-content: center;
-        }
-
-        .rating-chart {
-          flex: 1 1 100%;
-          width: 100%;
-          margin-left: 0;
-          justify-content: center;
-        }
-      }
     </style>
   </head>
   <body>
@@ -164,7 +169,8 @@
         <img src="./img/001.png" alt="学习路径与问题地图" />
       </figure>
 
-      <div class="about-row">
+      <div class="about-frame">
+      <div class="about-split">
         <section class="about-section">
           <h2>动机</h2>
           <p>
@@ -179,7 +185,7 @@
         </figure>
       </div>
 
-      <div class="about-row">
+      <div class="about-split">
         <section class="about-section">
           <h2>什么时候可以问，在哪里问？</h2>
           <p>
@@ -193,7 +199,7 @@
         </figure>
       </div>
 
-      <div class="about-row">
+      <div class="about-split">
         <section class="about-section">
           <h2>关于“权威”或“可信度”</h2>
           <p>
@@ -208,16 +214,15 @@
         </figure>
       </div>
 
-
-
-      <section class="about-section">
-        <h2>我希望</h2>
-        <p>
-          无论你是新手、已经走了一段路的高手，或者非常厉害的大佬，我都希望降低彼此沟通的压力。
-          不因为画技差异而害怕问“笨问题”，也不因为程度不同而不屑交流。理想状态是：双方互相探讨、
-          分享思路与技巧，形成良性循环的友好环境。
-        </p>
-      </section>
+        <section class="about-section">
+          <h2>我希望</h2>
+          <p>
+            无论你是新手、已经走了一段路的高手，或者非常厉害的大佬，我都希望降低彼此沟通的压力。
+            不因为画技差异而害怕问“笨问题”，也不因为程度不同而不屑交流。理想状态是：双方互相探讨、
+            分享思路与技巧，形成良性循环的友好环境。
+          </p>
+        </section>
+      </div>
 
       <section class="about-section">
         <h2>目前的关注方向</h2>
@@ -230,7 +235,7 @@
         <img src="./img/006.png" alt="目前关注方向展示" />
       </figure>
 
-      <div class="about-row">
+      <div class="about-split">
         <section class="about-section">
           <h2>自我评分说明</h2>
           <p>
@@ -287,7 +292,7 @@
       </section>
 
       <figure class="about-figure qr">
-        <img src="./img/005.jpg" alt="阶段性作品与练习" />
+        <img src="./img/005.png" alt="阶段性作品与练习" />
       </figure>
     </div>
   </body>

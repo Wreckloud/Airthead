@@ -1,302 +1,329 @@
 <!DOCTYPE html>
 <html lang="zh-Hans" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>关于 · Airthead</title>
-    <link rel="stylesheet" href="../../assets/styles/base.css" />
-    <link rel="stylesheet" href="../../assets/styles/common.css" />
-    <style>
-      .about-hero,
-      .about-section {
-        display: grid;
-        gap: 12px;
-        margin-bottom: 28px;
-      }
 
-      .about-hero h1 {
-        margin: 0;
-        font-family: "Optima", "Candara", "Trebuchet MS", sans-serif;
-        font-size: clamp(26px, 3vw, 40px);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关于 · Airthead</title>
+  <link rel="stylesheet" href="../../assets/styles/base.css" />
+  <link rel="stylesheet" href="../../assets/styles/common.css" />
+  <style>
+    .about-hero,
+    .about-section {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
 
-      .about-hero p,
-      .about-section p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 15px;
-        line-height: 1.7;
-      }
+    .about-hero h1 {
+      margin: 0;
+      font-family: "Optima", "Candara", "Trebuchet MS", sans-serif;
+      font-size: clamp(26px, 3vw, 40px);
+    }
 
-      .about-section h2 {
-        margin: 0;
-        font-size: 14px;
-        letter-spacing: 0.18em;
-        color: var(--sage);
-      }
+    .about-hero p,
+    .about-section p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
 
-      .about-figure {
-        margin: 0 0 28px;
-      }
+    .about-section h2 {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0.18em;
+      color: var(--sage);
+    }
 
-      .about-figure img {
-        width: 100%;
-        height: auto;
-      }
+    .about-figure {
+      margin: 0 0 28px;
+    }
 
-      .about-figure.center img {
-        width: 720px;
-      }
+    .about-figure img {
+      width: 100%;
+      height: auto;
+    }
 
-      .about-figure.qr img {
-        width: 220px;
-      }
+    .about-figure.center img {
+      width: 720px;
+    }
 
-      .about-figure.center img,
-      .about-figure.qr img {
-        margin: 0 auto;
-      }
+    .about-figure.qr img {
+      width: 220px;
+    }
 
-      .about-split {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 20px;
-        align-items: start;
-        margin-bottom: 28px;
-      }
+    .about-figure.center img,
+    .about-figure.qr img {
+      margin: 0 auto;
+    }
 
-      .about-split .about-section {
-        margin-bottom: 0;
-      }
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
 
-      .about-split .about-figure {
-        margin: 0;
-      }
+    .about-split .about-section {
+      margin-bottom: 0;
+    }
 
-      .about-split .about-figure img {
-        width: 150px;
-        height: auto;
-        display: block;
-      }
+    .about-split .about-figure {
+      margin: 0;
+    }
 
-      .about-frame {
-        position: relative;
-        --about-watermark: url("./img/007.png");
-      }
+    .about-split .about-figure img {
+      width: 150px;
+      height: auto;
+      display: block;
+    }
 
-      .about-frame::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: var(--about-watermark) no-repeat center;
-        background-size: clamp(260px, 60%, 520px) auto;
-        opacity: 0.16;
-        pointer-events: none;
-      }
+    .about-frame {
+      position: relative;
+      --about-watermark: url("./img/007.png");
+    }
 
-      .about-frame > * {
-        position: relative;
-        z-index: 1;
-      }
+    .about-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--about-watermark) no-repeat center;
+      background-size: clamp(260px, 60%, 520px) auto;
+      opacity: 0.16;
+      pointer-events: none;
+    }
 
-      .rating-chart {
-        width: 360px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        gap: 14px;
-        padding-top: 6px;
-      }
+    .about-frame>* {
+      position: relative;
+      z-index: 1;
+    }
 
-      .rating-item {
-        display: grid;
-        justify-items: center;
-        gap: 6px;
-        font-size: 12px;
-        color: var(--muted);
-      }
+    .rating-chart {
+      width: 360px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 14px;
+      padding-top: 6px;
+    }
 
-      .rating-value {
-        font-size: 12px;
-        color: var(--sage);
-      }
+    .rating-item {
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-      .rating-bar {
-        width: 24px;
-        height: 140px;
-        border: 1px solid var(--sage);
-        padding: 3px;
-        display: flex;
-        align-items: flex-end;
-        border-radius: 2px;
-      }
+    .rating-value {
+      font-size: 12px;
+      color: var(--sage);
+    }
 
-      .rating-fill {
-        width: 100%;
-        height: calc(var(--value) * 1%);
-        background: color-mix(in srgb, var(--sage) 35%, transparent);
-        border-radius: 2px;
-      }
+    .rating-bar {
+      width: 24px;
+      height: 140px;
+      border: 1px solid var(--sage);
+      padding: 3px;
+      display: flex;
+      align-items: flex-end;
+      border-radius: 2px;
+    }
 
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <nav class="nav">
-        <div class="brand">Airthead Notes</div>
-        <div class="nav-links">
-          <a href="../home/">首页</a>
-        </div>
-      </nav>
+    .rating-fill {
+      width: 100%;
+      height: calc(var(--value) * 1%);
+      background: color-mix(in srgb, var(--sage) 35%, transparent);
+      border-radius: 2px;
+    }
+  </style>
+</head>
 
-      <header class="about-hero">
-        <h1>想法：</h1>
-        <p>
-          我想为今后在自己开发的网站上面设置一个自己的学习绘画的地图，我想通过自己截至今日这三年的学习，
-          从新手到现在的这一过程，把我遇到的所有学习上的困难和思考分享在这一网站上，把各种问题打上tag，
-          像蜘蛛网一样把所有知识联系到一起，让一些遇到困难的人能知道，他们需要学习哪部分的知识，该怎么做，要怎么练。
-        </p>
-      </header>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="brand">Airthead Notes</div>
+      <div class="nav-links">
+        <a href="../home/">首页</a>
+      </div>
+    </nav>
 
-      <figure class="about-figure center">
-        <img src="./img/001.png" alt="学习路径与问题地图" />
-      </figure>
+    <header class="about-hero">
+      <h1>关于这个网站</h1>
+      <p>
+        如果大伙对于绘画上有些困惑或者想找找新思路，如果感兴趣的话可以来试试问问我！！
+      </p>
+      <p>
+        这里面存放的都是近期的讨论，由于qq现在聊天记录会过期，导致太早的问题都不见了。
+现在还是测试阶段，我会永久置顶它并且不断更新这个帖子，一点一点将它完善，目前大体应该差不多了，欢迎大伙一起讨论！
+      </p>
+    </header>
 
-      <div class="about-frame">
-        <div class="about-split">
-          <section class="about-section">
-            <h2>动机：</h2>
-            <p>
-              相比起绘画带来的成就或收益，我更喜欢在创作的途中去研究一些在绘画上的思路和想法，并将他分享给别人，
-              我喜欢通过帮助别人带来的那种正反馈，这种反馈是别的方面无法相比的，这一动机需要大量的问题来源，
-              我需要收集一些问题来保证不管是我自己还是这个“概念”的基底能丰富牢固起来。
-            </p>
-          </section>
+    <section class="about-section">
+      <h2>想法：</h2>
+      <p>
+        我想为今后在自己开发的网站上面设置一个自己的学习绘画的地图，我想通过自己截至今日这三年的学习，
+        从新手到现在的这一过程，把我遇到的所有学习上的困难和思考分享在这一网站上，把各种问题打上tag，
+        像蜘蛛网一样把所有知识联系到一起，让一些遇到困难的人能知道，他们需要学习哪部分的知识，该怎么做，要怎么练。
+      </p>
+    </section>
 
-          <figure class="about-figure">
-            <img src="./img/002.png" alt="动机相关草图" />
-          </figure>
-        </div>
+    <figure class="about-figure center">
+      <img src="./img/001.png" alt="学习路径与问题地图" />
+    </figure>
 
-        <div class="about-split">
-          <section class="about-section">
-            <h2>什么时候可以问，在哪里问？</h2>
-            <p>
-              你可以通过加群把你的问题丢在里面，如果比较害怕的话直接私信也没问题，个人大部分时间都空闲，
-              你可以先把问题丢在个人窗口或群内，没有第一时间回答的话也可以把所有的困惑整理一下便于处理问题。
-            </p>
-          </section>
-
-          <figure class="about-figure">
-            <img src="./img/003.png" alt="提问方式与交流" />
-          </figure>
-        </div>
-
-        <div class="about-split">
-          <section class="about-section">
-            <h2>关于“权威”或者“我的知识及建议的可信度”</h2>
-            <p>
-              像权威或者这些类似的东西有很多因素：平台人气、技术/作品、个人因素。这些都是人们愿意听一个人的理解的因素。
-              我不是什么很厉害的大佬，我不敢说自己带来的东西有多厉害，只要你愿意听我的理解或者拓展一下思路，
-              我非常乐意和你分享，哪怕最后这里面可能学到的不多。
-            </p>
-          </section>
-
-          <figure class="about-figure">
-            <img src="./img/004.png" alt="可信度与交流说明" />
-          </figure>
-        </div>
-
+    <div class="about-frame">
+      <div class="about-split">
         <section class="about-section">
-          <h2>我希望：</h2>
+          <h2>动机：</h2>
           <p>
-            不论你是刚学习绘画的新手或者是已经在这路上走了一段时间的高手又或是超级厉害的大佬，我更想降低两者之间的沟通压力。
-            不是因为画技的差异导致害怕问出觉得很蠢的问题，或者“画技优越”带来的不屑和自信，
-            而是：两方之间相互探讨分享思路和技巧的学术分享，良性循环的友好环境。
+            相比起绘画带来的成就或收益，我更喜欢在创作的途中去研究一些在绘画上的思路和想法，并将他分享给别人，
+            我喜欢通过帮助别人带来的那种正反馈，这种反馈是别的方面无法相比的，这一动机需要大量的问题来源，
+            我需要收集一些问题来保证不管是我自己还是这个“概念”的基底能丰富牢固起来。
           </p>
         </section>
+
+        <figure class="about-figure">
+          <img src="./img/002.png" alt="动机相关草图" />
+        </figure>
       </div>
-
-      <section class="about-section">
-        <p>
-          我目前正在主攻人体造型和角色设计，我喜欢软Q的人物、场景和插画，喜欢研究一些绘画上的思路和有意思的想法。
-        </p>
-      </section>
-
-      <figure class="about-figure center">
-        <img class="zoomable" src="./img/006.png" alt="目前关注方向展示" data-zoom="./img/006.png" />
-      </figure>
 
       <div class="about-split">
         <section class="about-section">
-          <h2>自我评分说明</h2>
+          <h2>什么时候可以问，在哪里问？</h2>
           <p>
-            右边的条是我在绘画方面对自己的理解认知，是基于“能画出一张可看的画”给自己打的分，
-            不是给画师或职业作品打分，对于我自己，其中要走的路还有很长。
+            你可以通过加群把你的问题丢在里面，如果比较害怕的话直接私信也没问题，个人大部分时间都空闲，
+            你可以先把问题丢在个人窗口或群内，没有第一时间回答的话也可以把所有的困惑整理一下便于处理问题。
           </p>
         </section>
 
-        <div class="rating-chart" aria-label="自我评分条形图">
-          <div class="rating-item" style="--value: 65">
-            <span class="rating-value">65</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">结构</span>
-          </div>
-          <div class="rating-item" style="--value: 70">
-            <span class="rating-value">70</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">构成</span>
-          </div>
-          <div class="rating-item" style="--value: 60">
-            <span class="rating-value">60</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">色彩</span>
-          </div>
-          <div class="rating-item" style="--value: 70">
-            <span class="rating-value">70</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">人体</span>
-          </div>
-          <div class="rating-item" style="--value: 75">
-            <span class="rating-value">75</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">造型</span>
-          </div>
-          <div class="rating-item" style="--value: 60">
-            <span class="rating-value">60</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">设计</span>
-          </div>
-          <div class="rating-item" style="--value: 70">
-            <span class="rating-value">70</span>
-            <div class="rating-bar"><div class="rating-fill"></div></div>
-            <span class="rating-label">场景</span>
-          </div>
-        </div>
+        <figure class="about-figure">
+          <img src="./img/003.png" alt="提问方式与交流" />
+        </figure>
+      </div>
+
+      <div class="about-split">
+        <section class="about-section">
+          <h2>关于“权威”或者“我的知识及建议的可信度”</h2>
+          <p>
+            像权威或者这些类似的东西有很多因素：平台人气、技术/作品、个人因素。这些都是人们愿意听一个人的理解的因素。
+            我不是什么很厉害的大佬，我不敢说自己带来的东西有多厉害，只要你愿意听我的理解或者拓展一下思路，
+            我非常乐意和你分享，哪怕最后这里面可能学到的不多。
+          </p>
+        </section>
+
+        <figure class="about-figure">
+          <img src="./img/004.png" alt="可信度与交流说明" />
+        </figure>
       </div>
 
       <section class="about-section">
-        <h2>加入讨论</h2>
+        <h2>我希望：</h2>
         <p>
-          这是我的神秘小群，如果你感兴趣的话欢迎进来玩，我们可以一起讨论交流绘画甚至各个方面的问题，
-          有的时候也有可能掉落别的大佬的分享（目前还没有），当然，现在人还不多，活跃度可能比较低。
+          不论你是刚学习绘画的新手或者是已经在这路上走了一段时间的高手又或是超级厉害的大佬，我更想降低两者之间的沟通压力。
+          不是因为画技的差异导致害怕问出觉得很蠢的问题，或者“画技优越”带来的不屑和自信，
+          而是：两方之间相互探讨分享思路和技巧的学术分享，良性循环的友好环境。
+        </p>
+      </section>
+    </div>
+
+    <section class="about-section">
+      <p>
+        我目前正在主攻人体造型和角色设计，我喜欢软Q的人物、场景和插画，喜欢研究一些绘画上的思路和有意思的想法。
+      </p>
+    </section>
+
+    <figure class="about-figure center">
+      <img class="zoomable" src="./img/006.png" alt="目前关注方向展示" data-zoom="./img/006.png" />
+    </figure>
+
+    <div class="about-split">
+      <section class="about-section">
+        <h2>自我评分说明</h2>
+        <p>
+          右边的条是我在绘画方面对自己的理解认知，是基于“能画出一张可看的画”给自己打的分，
+          不是给画师或职业作品打分，对于我自己，其中要走的路还有很长。
         </p>
       </section>
 
-      <figure class="about-figure qr">
-        <img src="./img/005.png" alt="阶段性作品与练习" />
-      </figure>
+      <div class="rating-chart" aria-label="自我评分条形图">
+        <div class="rating-item" style="--value: 65">
+          <span class="rating-value">65</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">结构</span>
+        </div>
+        <div class="rating-item" style="--value: 70">
+          <span class="rating-value">70</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">构成</span>
+        </div>
+        <div class="rating-item" style="--value: 60">
+          <span class="rating-value">60</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">色彩</span>
+        </div>
+        <div class="rating-item" style="--value: 70">
+          <span class="rating-value">70</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">人体</span>
+        </div>
+        <div class="rating-item" style="--value: 75">
+          <span class="rating-value">75</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">造型</span>
+        </div>
+        <div class="rating-item" style="--value: 60">
+          <span class="rating-value">60</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">设计</span>
+        </div>
+        <div class="rating-item" style="--value: 70">
+          <span class="rating-value">70</span>
+          <div class="rating-bar">
+            <div class="rating-fill"></div>
+          </div>
+          <span class="rating-label">场景</span>
+        </div>
+      </div>
     </div>
 
-    <script src="../../assets/js/image-viewer.js"></script>
-    <script>
-      (() => {
-        const chance = 0.01;
-        if (Math.random() > chance) return;
-        const frame = document.querySelector(".about-frame");
-        if (!frame) return;
-        frame.style.setProperty("--about-watermark", "url('./img/007-01.png')");
-      })();
-    </script>
-  </body>
+    <section class="about-section">
+      <h2>加入讨论</h2>
+      <p>
+        这是我的神秘小群，如果你感兴趣的话欢迎进来玩，我们可以一起讨论交流绘画甚至各个方面的问题，
+        有的时候也有可能掉落别的大佬的分享（目前还没有），当然，现在人还不多，活跃度可能比较低。
+      </p>
+    </section>
+
+    <figure class="about-figure qr">
+      <img src="./img/005.png" alt="阶段性作品与练习" />
+    </figure>
+  </div>
+
+  <script src="../../assets/js/image-viewer.js"></script>
+  <script>
+    (() => {
+      const chance = 0.01;
+      if (Math.random() > chance) return;
+      const frame = document.querySelector(".about-frame");
+      if (!frame) return;
+      frame.style.setProperty("--about-watermark", "url('./img/007-01.png')");
+    })();
+  </script>
+</body>
+
 </html>

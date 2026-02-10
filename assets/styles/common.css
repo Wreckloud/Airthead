@@ -33,6 +33,33 @@
   color: var(--sage);
 }
 
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 12, 16, 0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 24px;
+}
+
+.image-viewer.is-open {
+  display: flex;
+}
+
+.image-viewer img {
+  max-width: min(1100px, 92vw);
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+.zoomable {
+  cursor: zoom-in;
+}
+
 /* 通用响应式：小屏留白收紧 */
 @media (max-width: 720px) {
   .container {
